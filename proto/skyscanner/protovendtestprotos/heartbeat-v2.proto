@@ -1,0 +1,24 @@
+syntax = "proto3";
+option java_multiple_files = false;
+option java_package = "net.skyscanner.mshell.protovendtestprotos.api.rpc";
+option java_outer_classname = "HeartbeatV2";
+option objc_class_prefix = "HeartbeatV2";
+
+package grpc;
+
+// The pong service definition.
+service HeartbeatServiceV2 {
+    // Sends a single pong
+    rpc SayPong (Ping) returns (Pong) {}
+    // Sends a stream of pongs
+    rpc StreamPongs (Ping) returns (stream Pong) {}
+}
+// The ping message.
+message Ping {
+    uint32 count = 1;
+}
+
+// The pong message.
+message Pong {
+    string message = 1;
+}
