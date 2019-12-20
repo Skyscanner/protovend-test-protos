@@ -1,0 +1,25 @@
+syntax = "proto3";
+option java_multiple_files = false;
+option java_package = "foo.bar.baz.protovendtestprotos.api.rpc";
+option java_outer_classname = "HeartbeatV1";
+option objc_class_prefix = "HeartbeatV1";
+
+package grpc;
+
+// The pong service definition.
+service HeartbeatServiceV1 {
+    // Sends a single pong
+    rpc SayPong (Ping) returns (Pong) {}
+    // Sends a stream of pongs
+    rpc StreamPongs (Ping) returns (stream Pong) {}
+}
+// The ping message.
+message Ping {
+    string name = 1;
+    uint32 count = 2;
+}
+
+// The pong message.
+message Pong {
+    string message = 1;
+}
